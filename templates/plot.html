@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bar Chart Sharpe Ratio</title>
+</head>
+<body>
+    <h3>Sharpe Ratio</h3>
+    <div id="plot" class="plot"></div>
+    <h3>The bigger the better</h3>
+</body>
+
+<!-- import: jquery, d3.js, plotly.js -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<script type="text/javascript">
+    var visualisasi ={{plot | safe}}
+    Plotly.plot('plot', visualisasi, {})   
+</script>
+</html>
