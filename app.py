@@ -92,7 +92,7 @@ def predictindo():
         divide = 'put in your currency and index in the same length!'
         ylrindo = divide
         ylrconindo = divide
-    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo) ##immutabledit
+    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo, predgab=divide) ##immutabledit
 ####
 
 
@@ -143,7 +143,7 @@ def predict():
         divide = 'put in your currency and index in the same length!'
         ylrlaos = divide
         ylrconlaos = divide
-    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos)
+    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos, predgab=divide)
 
 @app.route('/predictmalay', methods = ['POST', 'GET'])
 def predictmalay():
@@ -192,7 +192,7 @@ def predictmalay():
         divide = 'put in your currency and index in the same length!'
         ylrmalay = divide
         ylrconmalay = divide
-    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay)
+    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay, predgab=divide)
 
 @app.route('/predictphilip', methods = ['POST', 'GET'])
 def predictphilip():
@@ -241,7 +241,7 @@ def predictphilip():
         divide = 'put in your currency and index in the same length!'
         ylrphilip = divide
         ylrconphilip = divide
-    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip)
+    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip, predgab=divide)
 
 @app.route('/predictsing', methods = ['POST', 'GET'])
 def predictsing():
@@ -290,7 +290,7 @@ def predictsing():
         divide = 'put in your currency and index in the same length!'
         ylrsing = divide
         ylrconsing = divide
-    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing)
+    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing, predgab=divide)
 
 
 @app.route('/predictthai', methods = ['POST', 'GET'])
@@ -340,7 +340,7 @@ def predictthai():
         divide = 'put in your currency and index in the same length!'
         ylrthai = divide
         ylrconthai = divide
-    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai)
+    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai, predgab=divide)
 
 @app.route('/predictviet', methods = ['POST', 'GET'])
 def predictviet():
@@ -389,7 +389,7 @@ def predictviet():
         divide = 'put in your currency and index in the same length!'
         ylrviet = divide
         ylrconviet = divide
-    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet)
+    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet, predgab=divide)
 
 
 
