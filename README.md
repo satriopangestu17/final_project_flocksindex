@@ -46,5 +46,5 @@ Guidance to Predict:
 <br>
 
 
-Hopefully you can get many insights from this project for your investment decision.
+Hopefully you can get many insight from this project for your investment decision.
 Thank you.
