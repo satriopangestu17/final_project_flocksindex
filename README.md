@@ -38,7 +38,7 @@ Guidance to Predict:
 
 ![Prediction](img/predictmalayinput.png "Prediction")
 
-2. Klik predict!
+2. Click predict!
 
 ## Prediction Result:
 ![Prediction](img/predictindo.png "Prediction")
