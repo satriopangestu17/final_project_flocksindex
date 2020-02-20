@@ -51,15 +51,15 @@ def predictindo():
     # if request.method == 'POST':
     input = request.form
     kindo = (input['kursindo: ']).split(',')
-    kuindo = []
+    kuindo1 = []
     for i in kindo:
         a  = float(i)
-        kuindo.append(a)
-    kuindo = np.array(kuindo)
-    if kuindo.shape[0] == 1:
-        kuindo = kuindo.reshape(1,1)
+        kuindo1.append(a)
+    kuindo1 = np.array(kuindo1)
+    if kuindo1.shape[0] == 1:
+        kuindo = kuindo1.reshape(1,1)
     else:
-        kuindo = np.array(kuindo).reshape(-1,1)
+        kuindo = np.array(kuindo1).reshape(-1,1)
     kursindo = modelindo.predict(kuindo)
 
     
@@ -81,18 +81,21 @@ def predictindo():
             ylrindo
             ylrconindo = ylrindo * kursindo
             ylrconindo
+            conawal = q/kuindo1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrindo = modelindoi.predict(divide)
             ylrindo
             ylrconindo = ylrindo * kursindo
             ylrconindo
+            conawal = q/kuindo1
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrindo = divide
         ylrconindo = divide
-    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo, predgab=divide) ##immutabledit
+        conawal = divide
+    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo, predgab=divide, conawal=conawal) ##immutabledit
 ####
 
 
@@ -101,15 +104,15 @@ def predict():
     # if request.method == 'POST':
     input = request.form
     klaos = (input['kurs: ']).split(',')
-    kulaos = []
+    kulaos1 = []
     for i in klaos:
         a  = float(i)
-        kulaos.append(a)
-    kulaos = np.array(kulaos)
-    if kulaos.shape[0] == 1:
-        kulaos = kulaos.reshape(1,1)
+        kulaos1.append(a)
+    kulaos1 = np.array(kulaos1)
+    if kulaos1.shape[0] == 1:
+        kulaos = kulaos1.reshape(1,1)
     else:
-        kulaos = np.array(kulaos).reshape(-1,1)
+        kulaos = np.array(kulaos1).reshape(-1,1)
     kurslaos = modellaos.predict(kulaos)
 
     
@@ -131,34 +134,37 @@ def predict():
             ylrlaos
             ylrconlaos = ylrlaos * kurslaos
             ylrconlaos
+            conawal = q/kulaos1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrlaos = modellaosi.predict(divide)
             ylrlaos
             ylrconlaos = ylrlaos * kurslaos
             ylrconlaos
+            conawal = q/kulaos1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrlaos = divide
         ylrconlaos = divide
-    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos, predgab=divide)
+        conawal = divide
+    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos, predgab=divide, conawal=conawal)
 
 @app.route('/predictmalay', methods = ['POST', 'GET'])
 def predictmalay():
     # if request.method == 'POST':
     input = request.form
     kmalay = (input['kursmalay: ']).split(',')
-    kumalay = []
+    kumalay1 = []
     for i in kmalay:
         a  = float(i)
-        kumalay.append(a)
-    kumalay = np.array(kumalay)
-    if kumalay.shape[0] == 1:
-        kumalay = kumalay.reshape(1,1)
+        kumalay1.append(a)
+    kumalay1 = np.array(kumalay1)
+    if kumalay1.shape[0] == 1:
+        kumalay = kumalay1.reshape(1,1)
     else:
-        kumalay = np.array(kumalay).reshape(-1,1)
+        kumalay = np.array(kumalay1).reshape(-1,1)
     kursmalay = modelmalay.predict(kumalay)
 
     
@@ -180,34 +186,37 @@ def predictmalay():
             ylrmalay
             ylrconmalay = ylrmalay * kursmalay
             ylrconmalay
+            conawal = q/kumalay1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrmalay = modelmalayi.predict(divide)
             ylrmalay
             ylrconmalay = ylrmalay * kursmalay
             ylrconmalay
+            conawal = q/kumalay1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrmalay = divide
         ylrconmalay = divide
-    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay, predgab=divide)
+        conmalay = divide
+    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay, predgab=divide, conawal=conawal)
 
 @app.route('/predictphilip', methods = ['POST', 'GET'])
 def predictphilip():
     # if request.method == 'POST':
     input = request.form
     kphilip = (input['kursphilip: ']).split(',')
-    kuphilip = []
+    kuphilip1 = []
     for i in kphilip:
         a  = float(i)
-        kuphilip.append(a)
-    kuphilip = np.array(kuphilip)
-    if kuphilip.shape[0] == 1:
-        kuphilip = kuphilip.reshape(1,1)
+        kuphilip1.append(a)
+    kuphilip1 = np.array(kuphilip1)
+    if kuphilip1.shape[0] == 1:
+        kuphilip = kuphilip1.reshape(1,1)
     else:
-        kuphilip= np.array(kuphilip).reshape(-1,1)
+        kuphilip= np.array(kuphilip1).reshape(-1,1)
     kursphilip = modelmalay.predict(kuphilip)
 
     
@@ -219,6 +228,7 @@ def predictphilip():
     #     d = c / kurslaos[i]
         q.append(c)
     q = np.array(q)
+    conawal =  q/kuphilip1
 
     if len(q) == len(kursphilip):
         divide = q / kursphilip
@@ -229,34 +239,37 @@ def predictphilip():
             ylrphilip
             ylrconphilip = ylrphilip * kursphilip
             ylrconphilip
+            conawal = q /kuphilip1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrphilip = modelphilipi.predict(divide)
             ylrphilip
             ylrconphilip = ylrphilip * kursphilip
             ylrconphilip
+            conawal = q/kuphilip1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrphilip = divide
         ylrconphilip = divide
-    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip, predgab=divide)
+        conawal = divide
+    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip, predgab=divide, conawal=conawal)
 
 @app.route('/predictsing', methods = ['POST', 'GET'])
 def predictsing():
     # if request.method == 'POST':
     input = request.form
     ksing = (input['kurssing: ']).split(',')
-    kusing = []
+    kusing1 = []
     for i in ksing:
         a  = float(i)
-        kusing.append(a)
-    kusing = np.array(kusing)
-    if kusing.shape[0] == 1:
-        kusing = kusing.reshape(1,1)
+        kusing1.append(a)
+    kusing1 = np.array(kusing1)
+    if kusing1.shape[0] == 1:
+        kusing = kusing1.reshape(1,1)
     else:
-        kusing= np.array(kusing).reshape(-1,1)
+        kusing= np.array(kusing1).reshape(-1,1)
     kurssing= modelmalay.predict(kusing)
 
     
@@ -278,19 +291,22 @@ def predictsing():
             ylrsing
             ylrconsing = ylrsing * kurssing
             ylrconsing
+            conawal = q/kusing1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrsing = modelsingi.predict(divide)
             ylrsing
             ylrconsing = ylrsing * kurssing
             ylrconsing
+            conawal = q/kusing1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrsing = divide
         ylrconsing = divide
-    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing, predgab=divide)
+        conawal = divide
+    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing, predgab=divide, conawal=conawal)
 
 
 @app.route('/predictthai', methods = ['POST', 'GET'])
@@ -298,15 +314,15 @@ def predictthai():
     # if request.method == 'POST':
     input = request.form
     kthai = (input['kursthai: ']).split(',')
-    kuthai = []
+    kuthai1 = []
     for i in kthai:
         a  = float(i)
-        kuthai.append(a)
-    kuthai = np.array(kuthai)
-    if kuthai.shape[0] == 1:
-        kuthai = kuthai.reshape(1,1)
+        kuthai1.append(a)
+    kuthai1 = np.array(kuthai1)
+    if kuthai1.shape[0] == 1:
+        kuthai = kuthai1.reshape(1,1)
     else:
-        kuthai= np.array(kuthai).reshape(-1,1)
+        kuthai= np.array(kuthai1).reshape(-1,1)
     kursthai= modelthai.predict(kuthai)
 
     
@@ -328,34 +344,37 @@ def predictthai():
             ylrthai
             ylrconthai = ylrthai * kursthai
             ylrconthai
+            conawal = q/kuthai1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrthai = modelthaii.predict(divide)
             ylrthai
             ylrconthai = ylrthai * kursthai
             ylrconthai
+            conawal = q/kuthai1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrthai = divide
         ylrconthai = divide
-    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai, predgab=divide)
+        conawal = divide
+    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai, predgab=divide, conawal=conawal)
 
 @app.route('/predictviet', methods = ['POST', 'GET'])
 def predictviet():
     # if request.method == 'POST':
     input = request.form
     kviet = (input['kursviet: ']).split(',')
-    kuviet = []
+    kuviet1 = []
     for i in kviet:
         a  = float(i)
-        kuviet.append(a)
-    kuviet = np.array(kuviet)
-    if kuviet.shape[0] == 1:
-        kuviet = kuviet.reshape(1,1)
+        kuviet1.append(a)
+    kuviet1 = np.array(kuviet1)
+    if kuviet1.shape[0] == 1:
+        kuviet = kuviet1.reshape(1,1)
     else:
-        kuviet= np.array(kuviet).reshape(-1,1)
+        kuviet= np.array(kuviet1).reshape(-1,1)
     kursviet= modelviet.predict(kuviet)
 
     
@@ -377,19 +396,22 @@ def predictviet():
             ylrviet
             ylrconviet = ylrviet * kursviet
             ylrconviet
+            conawal = q/kuviet1
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrviet = modelvieti.predict(divide)
             ylrviet
             ylrconviet = ylrviet * kursviet
             ylrconviet
+            conawal =q/kuviet1
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrviet = divide
         ylrconviet = divide
-    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet, predgab=divide)
+        conawal = divide
+    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet, predgab=divide, conawal=conawal)
 
 
 
