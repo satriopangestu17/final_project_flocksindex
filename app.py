@@ -73,7 +73,7 @@ def predictindo():
     q = np.array(q)
 
     if len(q) == len(kursindo):
-        divide = q / kursindo
+        divide = q / kuindo1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -82,6 +82,10 @@ def predictindo():
             ylrconindo = ylrindo * kursindo
             ylrconindo
             conawal = q/kuindo1
+            returncona = []
+            for i in range(len(ylrindo)):
+                returncon = (ylrindo[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrindo = modelindoi.predict(divide)
@@ -89,13 +93,19 @@ def predictindo():
             ylrconindo = ylrindo * kursindo
             ylrconindo
             conawal = q/kuindo1
+            returncona = []
+            for i in range(len(ylrindo)):
+                returncon = (ylrindo[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrindo = divide
         ylrconindo = divide
         conawal = divide
-    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo, predgab=divide, conawal=conawal) ##immutabledit
+        returncona = divide
+        
+    return render_template('predictindo.html', data=input, predindo=ylrconindo, predkindo=kursindo, predgab=ylrindo, conawal=conawal, returncona=returncona) ##immutabledit
 ####
 
 
@@ -126,7 +136,7 @@ def predict():
     q = np.array(q)
 
     if len(q) == len(kurslaos):
-        divide = q / kurslaos
+        divide = q / kulaos1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -135,6 +145,10 @@ def predict():
             ylrconlaos = ylrlaos * kurslaos
             ylrconlaos
             conawal = q/kulaos1
+            returncona = []
+            for i in range(len(ylrlaos)):
+                returncon = (ylrlaos[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrlaos = modellaosi.predict(divide)
@@ -142,6 +156,10 @@ def predict():
             ylrconlaos = ylrlaos * kurslaos
             ylrconlaos
             conawal = q/kulaos1
+            returncona = []
+            for i in range(len(ylrlaos)):
+                returncon = (ylrlaos[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
@@ -149,7 +167,9 @@ def predict():
         ylrlaos = divide
         ylrconlaos = divide
         conawal = divide
-    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos, predgab=divide, conawal=conawal)
+        returncona = divide
+        
+    return render_template('predictlaos.html', data=input, predlaos=ylrconlaos, predklaos=kurslaos, predgab=ylrlaos, conawal=conawal, returncona=returncona)
 
 @app.route('/predictmalay', methods = ['POST', 'GET'])
 def predictmalay():
@@ -178,7 +198,7 @@ def predictmalay():
     q = np.array(q)
 
     if len(q) == len(kursmalay):
-        divide = q / kursmalay
+        divide = q / kumalay1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -187,6 +207,10 @@ def predictmalay():
             ylrconmalay = ylrmalay * kursmalay
             ylrconmalay
             conawal = q/kumalay1
+            returncona = []
+            for i in range(len(ylrmalay)):
+                returncon = (ylrmalay[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrmalay = modelmalayi.predict(divide)
@@ -194,14 +218,20 @@ def predictmalay():
             ylrconmalay = ylrmalay * kursmalay
             ylrconmalay
             conawal = q/kumalay1
+            returncona = []
+            for i in range(len(ylrmalay)):
+                returncon = (ylrmalay[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
         divide = 'put in your currency and index in the same length!'
         ylrmalay = divide
         ylrconmalay = divide
-        conmalay = divide
-    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay, predgab=divide, conawal=conawal)
+        conawal = divide
+        returncona = divide
+        
+    return render_template('predictmalay.html', data=input, predmalay=ylrconmalay, predkmalay=kursmalay, predgab=ylrmalay, conawal=conawal, returncona=returncona)
 
 @app.route('/predictphilip', methods = ['POST', 'GET'])
 def predictphilip():
@@ -231,7 +261,7 @@ def predictphilip():
     conawal =  q/kuphilip1
 
     if len(q) == len(kursphilip):
-        divide = q / kursphilip
+        divide = q / kuphilip1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -240,6 +270,10 @@ def predictphilip():
             ylrconphilip = ylrphilip * kursphilip
             ylrconphilip
             conawal = q /kuphilip1
+            returncona = []
+            for i in range(len(ylrphilip)):
+                returncon = (ylrphilip[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrphilip = modelphilipi.predict(divide)
@@ -247,6 +281,10 @@ def predictphilip():
             ylrconphilip = ylrphilip * kursphilip
             ylrconphilip
             conawal = q/kuphilip1
+            returncona = []
+            for i in range(len(ylrphilip)):
+                returncon = (ylrphilip[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
@@ -254,7 +292,9 @@ def predictphilip():
         ylrphilip = divide
         ylrconphilip = divide
         conawal = divide
-    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip, predgab=divide, conawal=conawal)
+        returncona = divide
+        
+    return render_template('predictphilip.html', data=input, predphilip=ylrconphilip, predkphilip=kursphilip, predgab=ylrphilip, conawal=conawal, returncona=returncona)
 
 @app.route('/predictsing', methods = ['POST', 'GET'])
 def predictsing():
@@ -283,7 +323,7 @@ def predictsing():
     q = np.array(q)
 
     if len(q) == len(kurssing):
-        divide = q / kurssing
+        divide = q / kusing1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -292,6 +332,10 @@ def predictsing():
             ylrconsing = ylrsing * kurssing
             ylrconsing
             conawal = q/kusing1
+            returncona = []
+            for i in range(len(ylrsing)):
+                returncon = (ylrsing[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrsing = modelsingi.predict(divide)
@@ -299,6 +343,10 @@ def predictsing():
             ylrconsing = ylrsing * kurssing
             ylrconsing
             conawal = q/kusing1
+            returncona = []
+            for i in range(len(ylrsing)):
+                returncon = (ylrsing[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
@@ -306,7 +354,8 @@ def predictsing():
         ylrsing = divide
         ylrconsing = divide
         conawal = divide
-    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing, predgab=divide, conawal=conawal)
+        returncona = divide
+    return render_template('predictsing.html', data=input, predsing=ylrconsing, predksing=kurssing, predgab=ylrsing, conawal=conawal, returncona=returncona)
 
 
 @app.route('/predictthai', methods = ['POST', 'GET'])
@@ -336,7 +385,7 @@ def predictthai():
     q = np.array(q)
 
     if len(q) == len(kursthai):
-        divide = q / kursthai
+        divide = q / kuthai1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -345,6 +394,10 @@ def predictthai():
             ylrconthai = ylrthai * kursthai
             ylrconthai
             conawal = q/kuthai1
+            returncona = []
+            for i in range(len(ylrthai)):
+                returncon = (ylrthai[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrthai = modelthaii.predict(divide)
@@ -352,6 +405,10 @@ def predictthai():
             ylrconthai = ylrthai * kursthai
             ylrconthai
             conawal = q/kuthai1
+            returncona = []
+            for i in range(len(ylrthai)):
+                returncon = (ylrthai[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
@@ -359,7 +416,8 @@ def predictthai():
         ylrthai = divide
         ylrconthai = divide
         conawal = divide
-    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai, predgab=divide, conawal=conawal)
+        returncona  = divide
+    return render_template('predictthai.html', data=input, predthai=ylrconthai, predkthai=kursthai, predgab=ylrthai, conawal=conawal, returncona=returncona)
 
 @app.route('/predictviet', methods = ['POST', 'GET'])
 def predictviet():
@@ -388,7 +446,7 @@ def predictviet():
     q = np.array(q)
 
     if len(q) == len(kursviet):
-        divide = q / kursviet
+        divide = q / kuviet1
         print(divide)
         if divide.shape[0] == 1:
             divide = divide.reshape(1,1)
@@ -397,6 +455,10 @@ def predictviet():
             ylrconviet = ylrviet * kursviet
             ylrconviet
             conawal = q/kuviet1
+            returncona = []
+            for i in range(len(ylrviet)):
+                returncon = (ylrviet[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
         else:
             divide = np.array(divide).reshape(-1,1)
             ylrviet = modelvieti.predict(divide)
@@ -404,6 +466,10 @@ def predictviet():
             ylrconviet = ylrviet * kursviet
             ylrconviet
             conawal =q/kuviet1
+            returncona = []
+            for i in range(len(ylrviet)):
+                returncon = (ylrviet[i]-conawal[i])/conawal[i]
+                returncona.append(returncon)
 
     else:
     #     print('length should be the same')
@@ -411,7 +477,8 @@ def predictviet():
         ylrviet = divide
         ylrconviet = divide
         conawal = divide
-    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet, predgab=divide, conawal=conawal)
+        returncona = divide
+    return render_template('predictviet.html', data=input, predviet=ylrconviet, predkviet=kursviet, predgab=ylrviet, conawal=conawal, returncona=returncona)
 
 
 
