@@ -1,6 +1,6 @@
 # Final Project | Flock's Index
 
-## By: Satrio Pangestu | JCDS07 <br>
+## By: Satrio Pangestu |  <br>
 __Dataset__: Capital Market Index in ASEAN and the currency USD to the currency of ASEAN countries. <br>
 __Data Source__: [tradingeconomics](https://www.tradingeconomics.com/).
 Data that I use are the USD to the currency of the destination country and Capital Market Index of countries in ASEAN period 2014 - 2019.
